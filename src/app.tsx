@@ -1,6 +1,6 @@
 import React from "react";
 import { hot } from 'react-hot-loader/root';
-import Routes from "./utils/Route";
+import Routes from "utils/Route";
 
 export interface Props { }
 

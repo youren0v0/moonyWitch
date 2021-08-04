@@ -1,14 +1,27 @@
 {
     "compilerOptions": {
-        "outDir": "./dist/",
+        "outDir": "./build/",//打包后文件的位置
         "sourceMap": true,
-        "noImplicitAny": true,
+        "noImplicitAny": true,//是否对any类型发出警告
+        "allowJs": true, // 是否允许引入js
         "module": "commonjs",
         "target": "es2015",
         "jsx": "react",
-        "experimentalDecorators": true,
-        "esModuleInterop":true
+        "resolveJsonModule": true,//解决ts关于引用json的报错
+        "experimentalDecorators": true,//解决ts关于装饰器的报错
+        "suppressImplicitAnyIndexErrors":true, //解决ts中关于obj引用key报错：元素隐式具有 "any" 类型，因为类型为 "string"的表达式不能用于…… 
+        "esModuleInterop":true,//解决react引用方式的报错，详见：https://zhuanlan.zhihu.com/p/148081795
+        //下方解决了weppack引用路径添加失效的问题
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./src/*"],
+            "pages/*": ["./src/pages/*"],
+            "utils/*": ["./src/utils/*"],
+            "components/*": ["./src/components/*"],
+          },
     },
+
+    "exclude": ["node_modules", "build"],
     "include": [
         "./src/**/*"
     ]

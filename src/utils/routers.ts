@@ -1,27 +1,25 @@
 
-import Home from "../pages/Home";
-import App from "../pages/App";
+import pages from "./pages";
+import routers from "../../static/json/router.json";
+interface RouterProps {
+  url: string;
+  exact: boolean;
+  componentName: string;
+  component: any;
+  path: string;
+}
 
 const rawPath = (path:any) => {
   return process.env.NODE_ENV === "development"
-    ? path
-    : process.env.PUBLIC_URL + path;
+    ? "/" + path
+    : process.env.PUBLIC_URL + "/" + path;
 };
-const routers = [
-  {
-    path: "/",
-    exact: true,
-    component: Home
-  },
-  {
-    path: "/app",
-    exact: true,
-    component: App
-  }
-];
+
 export default routers.map((v) => {
-  return {
+  let obj: RouterProps =  {
     ...v,
-    path: rawPath(v.path)
+    path: rawPath(v.url),
+    component: pages[v.componentName || 'home']
   };
+  return obj
 });

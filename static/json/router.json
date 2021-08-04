@@ -1,0 +1,12 @@
+[
+  {
+    "url": "",
+    "exact": true,
+    "componentName": "Home"
+  },
+  {
+    "url": "app",
+    "exact": true,
+    "componentName": "App"
+  }
+]

@@ -13,10 +13,15 @@ module.exports = {
   devtool: "source-map",
 
   resolve: {
+    alias:{
+      '@':path.resolve(__dirname,'../src'),
+      'pages':path.resolve(__dirname,'../src/pages'),
+      'utils':path.resolve(__dirname,'../src/utils'),
+      'components': path.resolve(__dirname,'../src/components'),
+    }, // 解决typescript webpack 设置alias不生效的问题,https://blog.csdn.net/weixin_40013817/article/details/105074462
     // Add '.ts' and '.tsx' as resolvable extensions.
-    extensions: [".ts", ".tsx", ".js", ".json"]
+    extensions: [".ts", ".tsx", ".js", ".json",'.jsx']
   },
-
   module: {
     rules: [
       // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
