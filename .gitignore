@@ -1,0 +1,12 @@
+node_modules/
+.DS_Store
+yarn-error.log
+.idea
+dist/
+.cache-loader
+.vscode
+build/
+lib/
+*.iml
+package-lock.json
+.env*
