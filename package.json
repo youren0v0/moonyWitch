@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "private": true,
+  "homepage": "https://youren0v0.github.io/moonyWitch",
   "scripts": {
     "dll": "webpack --config config/webpack.dll.config",
     "build": "webpack --config config/webpack.prod  && node config/deploy.js",
