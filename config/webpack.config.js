@@ -1,17 +1,21 @@
 const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const fs = require('fs');
+const HtmlWebpackPlugin = require('html-webpack-plugin');//html文件
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');//清除文件
+
+// 从creat react app 扒出来的
+const appDirectory = fs.realpathSync(process.cwd());
+const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
+const homepage = require(resolveApp('package.json')).homepage
+
 module.exports = {
   entry: "./src/index.tsx",
   output: {
+    publicPath: process.env.NODE_ENV === 'development' ? '/':homepage + '/',
     path: path.resolve(__dirname, "../build"),
-    filename: "bundle.js"
+    filename: "static/js/[name].js"
   },
-  // mode: 'development',
-  // Enable sourcemaps for debugging webpack's output.
   devtool: "source-map",
-
   resolve: {
     alias:{
       '@':path.resolve(__dirname,'../src'),
@@ -71,8 +75,9 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "../public/index.html")
+      template: path.resolve(__dirname, "../public/index.html"),
     }),
+    // new HtmlWebpackInlineSourcePlugin(),
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: [path.resolve(process.cwd(), "build/"), path.resolve(process.cwd(), "dist/")]
     }),

@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "outDir": "./build/",//打包后文件的位置
+        "outDir": "./dist/",//打包后文件的位置
         "sourceMap": true,
         "noImplicitAny": true,//是否对any类型发出警告
         "allowJs": true, // 是否允许引入js
