@@ -14,6 +14,7 @@ module.exports = {
     publicPath: process.env.NODE_ENV === 'development' ? '/':homepage + '/',
     path: path.resolve(__dirname, "../build"),
     filename: "static/js/[name].js"
+    //filename: 'bundle.js',
   },
   devtool: "source-map",
   resolve: {
@@ -38,7 +39,21 @@ module.exports = {
           }
         }
       },
-
+    //   {
+    //     test:/\.(png|jpe?g|gif)$/,
+    //     use:[
+    //         {
+    //             loader:'url-loader',
+    //             options:{
+    //                 limit:8000
+    //             }
+    //         }
+    //     ]
+    // },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        use: ['file-loader']
+      },
       // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
       { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
       {

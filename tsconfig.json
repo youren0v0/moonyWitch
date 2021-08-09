@@ -23,6 +23,7 @@
 
     "exclude": ["node_modules", "build"],
     "include": [
-        "./src/**/*"
+        "./src/**/*",
+        "./images.d.ts", //导入图片文件路径,解决ts引入图片文件报错问题
     ]
 }
