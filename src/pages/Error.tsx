@@ -5,7 +5,7 @@ const Error: React.FC<any> = () => {
   return (
     <div className="Error">
       <h1>Error</h1>
-      <Link to="/app">app</Link>
+      <Link to="/">返回主页</Link>
     </div>
   );
 }

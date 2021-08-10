@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import Button from '@material-ui/core/Button';
-import styled from "styled-components";
+import styled,{keyframes} from "styled-components";
 import left from "../static/img/welcomeLeft.png";
 import right from "../static/img/welcomeRight.png";
-// const left = require("../static/img/welcomeLeft.png");
-// const right = require("../static/img/welcomeRight.png");
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 
 const Home: React.FC<any> = () => {
   const [state, setstate] = useState(0)
@@ -16,6 +15,7 @@ const Home: React.FC<any> = () => {
 
   return (
     <HomeBox>
+      <Header>
       <Welcome>
         <Img src={left}/>
         
@@ -26,7 +26,11 @@ const Home: React.FC<any> = () => {
         </Title>
         <Img src={right}/>
       </Welcome>
-
+      {/* <NextPageBtn>
+        <div>点击查看更多</div>
+      <ArrowDownwardIcon/>
+      </NextPageBtn> */}
+      
       <Link to="/app">
         <Button onClick={() => {
           setstate(3)
@@ -35,10 +39,18 @@ const Home: React.FC<any> = () => {
 
         </Button>
       </Link>
+      </Header>
+      <Content>
+
+      </Content>
     </HomeBox>
   );
 }
 export default Home
+const welcomeanimation = keyframes`
+  0%   {}
+  100% {transform: translateY(-100vh);}
+`;
 
 const HomeBox = styled.div`
   background-color: #aecbd9;
@@ -49,8 +61,10 @@ const HomeBox = styled.div`
 `
 const Welcome = styled.div`
   text-align:center;
+  padding: 20vh 0 ;
   margin:0 auto;
   width:100vw;
+  animation: ${welcomeanimation} 2s ease 3s 1 forwards ;
 `
 const Title = styled.span`
   background:#F26D7D;
@@ -70,4 +84,18 @@ const Name = styled.span`
 `
 const Img = styled.img`
   vertical-align: top;
+`
+const Header = styled.div`
+  height:100vh;
+  width:100vw;
+`
+const NextPageBtn = styled.div`
+  text-align:center;
+  margin:0 auto;
+  color: #fff;
+  font-size:20px;
+`
+const Content = styled.div`
+  height:100vh;
+  width:100vw;
 `

@@ -21,8 +21,8 @@ const App: React.FC<any> =() => {
       
 
     return  <>
-    {isLogin}
-    {isLogin && <Routes/>}
+    {/* {isLogin}
+    {isLogin && <Routes/>} */}
     <Routes/>
     <GlobalStyle/>
     </>

@@ -10,6 +10,7 @@ const Routes: React.FC<any> = () => {
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/app" exact component={App} />
+      {/* 下方写法github page不生效，why？？？？ */}
     {/* {
       routers.map((v) => {
         return <Route key={v.path} path={ v.path } exact = { v.exact } component = { v.component } />;
@@ -22,3 +23,5 @@ const Routes: React.FC<any> = () => {
   );
 }
 export default Routes
+
+
